@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: fe
+  name: nginx-frontend
+spec:
+  selector:
+    matchLabels:
+      app: nginx-frontend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx-frontend
+    spec:
+      containers:
+      - name: nginx-frontend
+        image: nginx
+        ports:
+        - containerPort: 80
